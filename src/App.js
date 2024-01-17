@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import BookList from './crud/BookList';
+import NavbarComponent from './crud/NavbarComponent';
+import Crud from "./crud";
+import Crudkedua from "./crudkedua";
+import Peminjam from "./crudkedua/Peminjam";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+const App = () => {
+  return(
+<Router>
+  <div>
+     {/* <Crud /> */}
+     {/* <Crudkedua />  */}
+  <NavbarComponent /> /
+        <Routes>
+          <Route path="/books" element={<Crud />} />
+          <Route path="/peminjams" element={<Crudkedua />} />
+        </Routes>
+        </div>
+        </Router> 
+
+       
+  )
 }
 
 export default App;
